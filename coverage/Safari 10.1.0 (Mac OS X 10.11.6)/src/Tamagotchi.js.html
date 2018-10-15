@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Tamagotchi.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> Tamagotchi.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>8/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>1/1</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">!function(n){var e={};function t(s){<span class="missing-if-branch" title="if path not taken" >I</span>if(e[s])<span class="cstat-no" title="statement not covered" >return e[s].exports;v</span>ar I=e[s]={i:s,l:!1,exports:{}};return n[s].call(I.exports,I,I.exports,t),I.l=!0,I.exports}t.m=n,t.c=e,t.d=<span class="fstat-no" title="function not covered" >function(n,e,s){<span class="cstat-no" title="statement not covered" ></span>t.o(n,e)||Object.defineProperty(n,e,{configurable:!1,enumerable:!0,get:s})}</span>,t.r=<span class="fstat-no" title="function not covered" >function(n){<span class="cstat-no" title="statement not covered" ></span>Object.defineProperty(n,"__esModule",{value:!0})}</span>,t.n=<span class="fstat-no" title="function not covered" >function(n){<span class="cstat-no" title="statement not covered" ></span>var e=n&amp;&amp;n.__esModule?<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return n.default}</span>:<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return n}</span>;<span class="cstat-no" title="statement not covered" >r</span>eturn t.d(e,"a",e),e}</span>,t.o=<span class="fstat-no" title="function not covered" >function(n,e){<span class="cstat-no" title="statement not covered" ></span>return Object.prototype.hasOwnProperty.call(n,e)}</span>,t.p="/var/folders/zz/zyxvpxvq6csfxvn_n00000s4000069/T/_karma_webpack_/",t(t.s=3)}({3:function(module,exports,__webpack_require__){"use strict";eval('\n\nObject.defineProperty(exports, "__esModule", {\n  value: true\n});\nvar tamagotchi = exports.tamagotchi = {\n  name: "Tamagotchi",\n  foodLevel: 100,\n  sleepLevel: 100,\n  happinessLevel: 100,\n  disciplineLevel: 50,\n  age: 0,\n  sickness: false,\n  restlessness: false,\n  messTolerance: 100,\n  dead: false,\n\n  setHunger: function setHunger() {\n    var _this = this;\n\n    var hungerInterval = setInterval(function () {\n      _this.foodLevel--;\n      if (_this.isDead() == true) {\n        clearInterval(hungerInterval);\n        return "Your Tamagotchi is dead!";\n      }\n    }, 1000);\n  },\n\n  setHappiness: function setHappiness() {\n    var _this2 = this;\n\n    var happinessInterval = setInterval(function () {\n      _this2.happinessLevel--;\n      if (_this2.isDead() == true) {\n        clearInterval(happinessInterval);\n        return "Your Tamagotchi is dead!";\n      }\n    }, 900);\n  },\n\n  isDead: function isDead() {\n    if (this.foodLevel &gt; 0 &amp;&amp; this.happinessLevel &gt; 0) {\n      return false;\n    } else {\n      return true;\n    }\n  },\n\n  feed: function feed(amount) {\n    var that = this;\n    return function (food) {\n      that.foodLevel + amount &gt; 100 ? that.foodLevel = 100 : that.foodLevel += amount;\n      return "Your Tamagotchi ate the " + food + "! Food level is now " + that.foodLevel + "!";\n    };\n  },\n\n  // feedSnack: this.feed(20),\n  // feedMeal: this.feed(75),\n\n  play: function play(amount) {\n    return function (play) {};\n  }\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvVGFtYWdvdGNoaS5qcz9lYjZhIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7O0FBQU8sSUFBSTtRQUVUO2FBQ0E7Y0FDQTtrQkFDQTttQkFDQTtPQUNBO1lBQ0E7Z0JBQ0E7aUJBQ0E7UUFFQTs7YUFBVztBQUNUOztRQUFNLDZCQUE2QixZQUNqQztZQUNBO1VBQUksTUFBSyxZQUFZLE1BQ25CO3NCQUNBO2VBQ0Q7QUFDRjtBQU5zQixPQU94QjtBQUVEOztnQkFBYztBQUNaOztRQUFNLGdDQUFnQyxZQUNwQzthQUNBO1VBQUksT0FBSyxZQUFZLE1BQ25CO3NCQUNBO2VBQ0Q7QUFDRjtBQU55QixPQU8zQjtBQUVEOztVQUFRLGtCQUNOO1FBQUksS0FBSyxZQUFZLEtBQUssS0FBSyxpQkFBaUIsR0FDOUM7YUFDRDtBQUZELFdBR0U7YUFDRDtBQUNGO0FBRUQ7O1FBQU0sY0FBUyxRQUNiO1FBQUksT0FDSjtXQUFPLFVBQVMsTUFDYjtXQUFLLFlBQVksU0FBUyxNQUFPLEtBQUssWUFBWSxNQUFNLEtBQUssYUFDOUQ7QUFBUSwwQ0FBK0IsZ0NBQXNCLEtBQzlEO0FBQ0Y7QUFFRDs7QUFDQTtBQUVBOztRQUFNLGNBQVMsUUFDYjtXQUFPLFVBQVMsTUFFZixDQUNGO0FBdkRxQjtBQUN0QiIsImZpbGUiOiIzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGxldCB0YW1hZ290Y2hpID0ge1xuICBuYW1lOiBcIlRhbWFnb3RjaGlcIixcbiAgZm9vZExldmVsOiAxMDAsXG4gIHNsZWVwTGV2ZWw6IDEwMCxcbiAgaGFwcGluZXNzTGV2ZWw6IDEwMCxcbiAgZGlzY2lwbGluZUxldmVsOiA1MCxcbiAgYWdlOiAwLFxuICBzaWNrbmVzczogZmFsc2UsXG4gIHJlc3RsZXNzbmVzczogZmFsc2UsXG4gIG1lc3NUb2xlcmFuY2U6IDEwMCxcbiAgZGVhZDogZmFsc2UsXG5cbiAgc2V0SHVuZ2VyOiBmdW5jdGlvbigpIHtcbiAgICBjb25zdCBodW5nZXJJbnRlcnZhbCA9IHNldEludGVydmFsKCgpID0+IHtcbiAgICAgIHRoaXMuZm9vZExldmVsLS07XG4gICAgICBpZiAodGhpcy5pc0RlYWQoKSA9PSB0cnVlKSB7XG4gICAgICAgIGNsZWFySW50ZXJ2YWwoaHVuZ2VySW50ZXJ2YWwpO1xuICAgICAgICByZXR1cm4gXCJZb3VyIFRhbWFnb3RjaGkgaXMgZGVhZCFcIjtcbiAgICAgIH1cbiAgICB9LCAxMDAwKTtcbiAgfSxcblxuICBzZXRIYXBwaW5lc3M6IGZ1bmN0aW9uKCkge1xuICAgIGNvbnN0IGhhcHBpbmVzc0ludGVydmFsID0gc2V0SW50ZXJ2YWwoKCkgPT4ge1xuICAgICAgdGhpcy5oYXBwaW5lc3NMZXZlbC0tO1xuICAgICAgaWYgKHRoaXMuaXNEZWFkKCkgPT0gdHJ1ZSkge1xuICAgICAgICBjbGVhckludGVydmFsKGhhcHBpbmVzc0ludGVydmFsKTtcbiAgICAgICAgcmV0dXJuIFwiWW91ciBUYW1hZ290Y2hpIGlzIGRlYWQhXCI7XG4gICAgICB9XG4gICAgfSwgOTAwKTtcbiAgfSxcblxuICBpc0RlYWQ6IGZ1bmN0aW9uKCkge1xuICAgIGlmICh0aGlzLmZvb2RMZXZlbCA+IDAgJiYgdGhpcy5oYXBwaW5lc3NMZXZlbCA+IDApIHtcbiAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9IGVsc2Uge1xuICAgICAgcmV0dXJuIHRydWU7XG4gICAgfVxuICB9LFxuXG4gIGZlZWQ6IGZ1bmN0aW9uKGFtb3VudCkge1xuICAgIGxldCB0aGF0ID0gdGhpcztcbiAgICByZXR1cm4gZnVuY3Rpb24oZm9vZCkge1xuICAgICAgKHRoYXQuZm9vZExldmVsICsgYW1vdW50ID4gMTAwKSA/IHRoYXQuZm9vZExldmVsID0gMTAwIDogdGhhdC5mb29kTGV2ZWwgKz0gYW1vdW50O1xuICAgICAgcmV0dXJuIGBZb3VyIFRhbWFnb3RjaGkgYXRlIHRoZSAke2Zvb2R9ISBGb29kIGxldmVsIGlzIG5vdyAke3RoYXQuZm9vZExldmVsfSFgO1xuICAgIH07XG4gIH0sXG5cbiAgLy8gZmVlZFNuYWNrOiB0aGlzLmZlZWQoMjApLFxuICAvLyBmZWVkTWVhbDogdGhpcy5mZWVkKDc1KSxcblxuICBwbGF5OiBmdW5jdGlvbihhbW91bnQpIHtcbiAgICByZXR1cm4gZnVuY3Rpb24ocGxheSkge1xuXG4gICAgfVxuICB9XG59O1xuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///3\n')}});</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 15 2018 14:14:51 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

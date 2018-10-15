@@ -20,6 +20,7 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-jasmine',
       'karma-chrome-launcher',
+      'karma-safari-launcher',
       'karma-jasmine-html-reporter',
       'karma-sourcemap-loader',
       'karma-coverage'
