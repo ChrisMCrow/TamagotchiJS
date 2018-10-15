@@ -40,10 +40,15 @@ export let tamagotchi = {
     let that = this;
     return function(food) {
       (that.foodLevel + amount > 100) ? that.foodLevel = 100 : that.foodLevel += amount;
-      return `Your Tamagotchi ate the ${food}! Food level is now ${that.foodLevel}!`
-    }
+      return `Your Tamagotchi ate the ${food}! Food level is now ${that.foodLevel}!`;
+    };
   },
 
-  
+  feedSnack: this.feed(20)
 
+  // play: function(amount) {
+  //   return function(play) => {
+  //
+  //   }
+  // }
 };
