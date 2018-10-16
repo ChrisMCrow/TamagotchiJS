@@ -9,6 +9,7 @@ describe('Tamagotchi', function() {
     egg.setHunger();
     egg.setHappiness();
     egg.setSleep();
+    egg.setAge();
   });
 
   afterEach(function(){
@@ -72,6 +73,47 @@ describe('Tamagotchi', function() {
     expect(egg.isPoopy).toEqual(true);
   });
 
+  it('should start decreasing mess tolerance after it poops', function() {
+    egg.foodLevel = 75;
+    egg.feedSnack("snack");
+    jasmine.clock().tick(90001);
+    expect(egg.isSick).toEqual(true);
+    expect(egg.messTolerance).toEqual(0);
+  });
 
+  it('should use the flush method to clean poop, reset tolerance, and clear the mess tolerance interval', function() {
+    egg.foodLevel = 75;
+    egg.feedSnack("snack");
+    jasmine.clock().tick(75001);
+    egg.flush();
+    expect(egg.isPoopy).toEqual(false);
+    expect(egg.messTolerance).toEqual(100);
+    jasmine.clock().tick(10001);
+    expect(egg.messTolerance).toEqual(100);
+  });
+
+  it('should not be sick if you give it medicine', function(){
+    egg.isSick = true;
+    egg.foodLevel = 50;
+    egg.feedSnack("blueberreis");
+    expect(egg.foodLevel).toEqual(50);
+    egg.happinessLevel = 50;
+    egg.playShort("swing");
+    expect(egg.happinessLevel).toEqual(50);
+    egg.giveMedicine();
+    expect(egg.isSick).toEqual(false);
+  });
+
+  it('should have Tamagotchi age and return home when age is greater than 23', function() {
+    egg.age = 23;
+    jasmine.clock().tick(60001);
+    expect(egg.isGone).toEqual(true);
+  });
+  
+  it('should create a new Tamagotchi', function() {
+    egg.foodLevel = 50;
+    egg.newTamagotchi("New Egg");
+    expect(egg.foodLevel).toEqual(100);
+  });
 
 });
