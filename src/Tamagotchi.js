@@ -28,11 +28,11 @@ export let tamagotchi = {
     let that = this;
     return function(food) {
       if (that.isRestless) {
-        return "Your Tamagotchi is restless and won't eat."
+        return "Your Tamagotchi is restless and won't eat.";
       } else if (that.isAsleep) {
         return "Your Tamagotchi is asleep";
       } else if (that.isSick) {
-        return "Your Tamagotchi is sick and won't eat."
+        return "Your Tamagotchi is sick and won't eat.";
       } else if (that.foodLevel + amount > 100) {
         return `Your Tamagotchi isn't hungry enough to eat a ${food}.`;
       } else if (that.isGone == false){
@@ -40,7 +40,7 @@ export let tamagotchi = {
         setTimeout(() => {
           this.isPoopy = true;
           this.setMessTolerance();
-          return "Your Tamagotchi pooped."
+          return "Your Tamagotchi pooped.";
         }, 60000);
         return `Your Tamagotchi ate the ${food}! Food level is now ${that.foodLevel}!`;
       } else {
@@ -64,14 +64,14 @@ export let tamagotchi = {
     let that = this;
     return function(play) {
       if (that.isRestless) {
-        return "Your Tamagotchi is restless and won't play."
+        return "Your Tamagotchi is restless and won't play.";
       } else if (that.isAsleep) {
         return "Your Tamagotchi is asleep";
       } else if (that.isSick) {
-        return "Your Tamagotchi is sick and won't play."
+        return "Your Tamagotchi is sick and won't play.";
       } else if (that.isGone == false) {
         (that.happinessLevel + amount > 100) ? that.happinessLevel = 100 : that.happinessLevel += amount;
-        return `Your Tamagotchi played ${play}! Happiness level is now ${that.happinessLevel}!`
+        return `Your Tamagotchi played ${play}! Happiness level is now ${that.happinessLevel}!`;
       } else {
         return "Your Tamagotchi is dead.";
       }
@@ -82,7 +82,7 @@ export let tamagotchi = {
     const sleepInterval = setInterval(() => {
       this.sleepLevel--;
       if (this.sleepLevel < 25) {
-        return "Your Tamagotchi is getting sleepy."
+        return "Your Tamagotchi is getting sleepy.";
       } else if (this.sleepLevel <= 0) {
         clearInterval(sleepInterval);
         this.sleepLevel = 0;
@@ -98,7 +98,7 @@ export let tamagotchi = {
       if (this.sleepLevel >= 100) {
         clearInterval(restInterval);
         this.isAsleep = false;
-        return "Your Tamagotchi is awake."
+        return "Your Tamagotchi is awake.";
       }
     }, 1000);
   },
@@ -129,7 +129,8 @@ export let tamagotchi = {
       this.age++;
       if (this.age > 23) {
         this.isGone = true;
-        return "Your tamagotchi has returned to his home planet."
+        clearInterval(ageInterval);
+        return "Your tamagotchi has returned to his home planet.";
       }
     }, 60000);
   },
@@ -139,20 +140,20 @@ export let tamagotchi = {
   },
 
   newTamagotchi: function(newName) {
-    this.name = newName,
-    this.foodLevel = 100,
-    this.happinessLevel = 100,
-    this.sleepLevel = 100,
-    this.disciplineLevel = 50,
-    this.messTolerance = 100,
-    this.age = 0,
-    this.isSick = false,
-    this.isRestless = false,
-    this.isGone = false,
-    this.isAsleep = false,
-    this.isCrying = false,
-    this.isPoopy = false
-    return `You have hatched a new Tamagotchi named ${this.name}! Your old Tamagotchi has rejoined his people.`
+    this.name = newName;
+    this.foodLevel = 100;
+    this.happinessLevel = 100;
+    this.sleepLevel = 100;
+    this.disciplineLevel = 50;
+    this.messTolerance = 100;
+    this.age = 0;
+    this.isSick = false;
+    this.isRestless = false;
+    this.isGone = false;
+    this.isAsleep = false;
+    this.isCrying = false;
+    this.isPoopy = false;
+    return `You have hatched a new Tamagotchi named ${this.name}! Your old Tamagotchi has rejoined his people.`;
   }
 };
 

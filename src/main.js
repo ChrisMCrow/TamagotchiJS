@@ -12,4 +12,17 @@ $(document).ready(function() {
     egg.foodLevel = 50;
     $("#hunger").text("hello");
   });
+  // $.ajax({
+  //   url: `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=digimon`,
+  //   type:'Get',
+  //   data: {
+  //     format: 'json'
+  //   },
+  //   success: function(response) {
+  //     $('#myTamagotchi').prepend(`<img src=${response.data[1].images.original.url} />`);
+  //   },
+  //   error: function() {
+  //     alert("error!");
+  //   }
+  // });
 });
