@@ -17,11 +17,25 @@ export let tamagotchi = {
     const hungerInterval = setInterval(() => {
       this.foodLevel--;
       if (this.foodLevel <= 0) {
+        this.isGone = true;
         clearInterval(hungerInterval);
-        this.isGone == true;
         return "Your Tamagotchi is dead.";
       }
-    }, 1000);
+    }, 700);
+  },
+
+  displayHunger: function() {
+    if (this.foodLevel > 75) {
+      return "♥ ♥ ♥ ♥";
+    } else if (this.foodLevel > 50) {
+      return "♥ ♥ ♥";
+    } else if (this.foodLevel > 25) {
+      return "♥ ♥";
+    } else if (this.foodLevel > 0) {
+      return "♥";
+    } else {
+      return "";
+    }
   },
 
   feed: function(amount) {
@@ -41,7 +55,7 @@ export let tamagotchi = {
           this.isPoopy = true;
           this.setMessTolerance();
           return "Your Tamagotchi pooped.";
-        }, 60000);
+        }, 20000);
         return `Your Tamagotchi ate the ${food}! Food level is now ${that.foodLevel}!`;
       } else {
         return "Your Tamagotchi is dead.";
@@ -53,11 +67,25 @@ export let tamagotchi = {
     const happinessInterval = setInterval(() => {
       this.happinessLevel--;
       if (this.happinessLevel <= 0) {
+        this.isGone = true;
         clearInterval(happinessInterval);
-        this.isGone == true;
         return "Your Tamagotchi is dead.";
       }
-    }, 900);
+    }, 500);
+  },
+
+  displayHappiness: function() {
+    if (this.happinessLevel > 75) {
+      return "♥ ♥ ♥ ♥";
+    } else if (this.happinessLevel > 50) {
+      return "♥ ♥ ♥";
+    } else if (this.happinessLevel > 25) {
+      return "♥ ♥";
+    } else if (this.happinessLevel > 0) {
+      return "♥";
+    } else {
+      return "";
+    }
   },
 
   play: function(amount) {
@@ -81,26 +109,44 @@ export let tamagotchi = {
   setSleep: function() {
     const sleepInterval = setInterval(() => {
       this.sleepLevel--;
-      if (this.sleepLevel < 25) {
-        return "Your Tamagotchi is getting sleepy.";
+      if(this.isAsleep) {
+        clearInterval(sleepInterval);
       } else if (this.sleepLevel <= 0) {
         clearInterval(sleepInterval);
         this.sleepLevel = 0;
-        this.restlessness = true;
+        this.isRestless = true;
+      } else if (this.sleepLevel < 25) {
+        return "Your Tamagotchi is getting sleepy.";
       }
-    }, 1500);
+    }, 400);
   },
 
   lightsOut: function() {
     const restInterval = setInterval(() => {
       this.isAsleep = true;
-      this.sleepLevel+=5;
+      this.isRestless = false;
+      this.sleepLevel+=1;
       if (this.sleepLevel >= 100) {
         clearInterval(restInterval);
         this.isAsleep = false;
+        this.setSleep();
         return "Your Tamagotchi is awake.";
       }
-    }, 1000);
+    }, 200);
+  },
+
+  displaySleep: function() {
+    if (this.sleepLevel > 75) {
+      return "☻ ☻ ☻ ☻";
+    } else if (this.sleepLevel > 50) {
+      return "☻ ☻ ☻";
+    } else if (this.sleepLevel > 25) {
+      return "☻ ☻";
+    } else if (this.sleepLevel > 0) {
+      return "☻";
+    } else {
+      return "";
+    }
   },
 
   flush: function() {
@@ -120,7 +166,7 @@ export let tamagotchi = {
         } else if (!this.isPoopy) {
           clearInterval(toleranceInterval);
         }
-      }, 250);
+      }, 100);
     }
   },
 
@@ -154,6 +200,22 @@ export let tamagotchi = {
     this.isCrying = false;
     this.isPoopy = false;
     return `You have hatched a new Tamagotchi named ${this.name}! Your old Tamagotchi has rejoined his people.`;
+  },
+
+  checkIfDead: function(interval) {
+    if (this.isGone) {
+      this.foodLevel = 0;
+      this.happinessLevel = 0;
+      this.sleepLevel = 0;
+      this.disciplineLevel = 0;
+      this.messTolerance = 0;
+      this.isSick = false;
+      this.isRestless = false;
+      this.isAsleep = false;
+      this.isCrying = false;
+      this.isPoopy = false;
+      clearInterval(interval);
+    }
   }
 };
 

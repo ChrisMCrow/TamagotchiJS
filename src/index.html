@@ -1,31 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
     <title>MyTamagotchi</title>
   </head>
   <body>
     <div class="container">
+      <h1 class="jumbotron">Tamagotchi</h1>
       <div id="myTamagotchi">
-        <h2 id="name">Tamagotchi</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <p>Name: <span id="name"></span></p>
+            <p>Food Level: <span class="hearts" id="foodLevel"></span></p>
+            <p>Happiness Level: <span class="hearts" id="happinessLevel"></span></p>
+            <p>Sleep Level: <span class="hearts" id="sleepLevel"></span></p>
+            <p>Age: <span id="age"></span></p>
+          </div>
+          <div class="col-md-6">
+            <ul id="statusList">
+              <li><span id="sick"><i class="fas fa-dizzy"></i></span></li>
+              <li><span id="restless"><i class="fas fa-tired"></i></span></li>
+              <li><span id="gone"><i class="fas fa-skull-crossbones"></i></span></li>
+              <li><span id="asleep"><i class="fas fa-bed"></i></span></li>
+              <li><span id="crying"><i class="fas fa-sad-cry"></i></span></li>
+              <li><span id="poopy"><i class="fas fa-poo"></i></span></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <form id="feed">
-            <h2>Hunger: <span id="hunger"></span></h2>
-            <button type="submit" class="btn btn-warning">Feed</button><br>
-          </form>
+      <form id="start">
+        <label>Name Your Tamagotchi</label>
+        <input type="text" id="nameInput" class="form-control" />
+        <button type="submit" class="btn btn-primary">Start</button>
+      </form>
+      <div id="actionButtons">
+        <div class="row">
+          <div class="col-sm-4">
+            <button id="snack" class="btn btn-primary">Feed Snack</button>
+          </div>
+          <div class="col-sm-4">
+            <button id="play" class="btn btn-info">Play</button>
+          </div>
+          <div class="col-sm-4">
+            <button id="lightsOut" class="btn btn-warning">Lights Out</button>
+          </div>
         </div>
-        <div class="col-md-4">
-          <form id="sleep">
-            <h2>Energy: <span id="energy"></span></h2>
-            <button class="btn btn-info">Make Sleep</button><br>
-          </form>
-        </div>
-        <div class="col-md-4">
-          <form id="play">
-            <h2>Attention: <span id="attention"></span></h2>
-            <button class="btn btn-success">Play</button>
-          </form>
+        <div class="row">
+          <div class="col-sm-4">
+            <button id="flush" class="btn btn-dark">Flush Toilet</button>
+          </div>
+          <div class="col-sm-4">
+            <button id="medicine" class="btn btn-success">Give Medicine</button>
+          </div>
+          <div class="col-sm-4">
+            <button id="hatch" class="btn btn-danger">Hatch New Tamagotchi</button>
+          </div>
         </div>
       </div>
     </div>
